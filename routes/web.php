@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Clients\CartController;
+use App\Http\Controllers\Clients\CheckoutController;
 use App\Http\Controllers\Clients\AccountController;
 use App\Http\Controllers\Clients\AuthController;
 use App\Http\Controllers\Clients\ForgotPasswordController;
@@ -12,6 +12,7 @@ use App\Http\Controllers\Clients\ResetPasswordController;
 use App\Http\Controllers\Clients\ReviewController;
 use App\Http\Controllers\Clients\SearchController;
 use App\Http\Controllers\Clients\WishListController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get(
@@ -32,14 +33,7 @@ Route::get('/faq', function () {
     return view('clients.pages.faq');
 })->name('faq');
 
-
 Route::get('/activate/{token}', [AuthController::class, 'activate'])->name(name: 'post-register');
-
-
-
-
-
-
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -106,3 +100,10 @@ Route::post('/cart/remove-cart',  [CartController::class, 'removeCartItem'])->na
 
 //Search
 Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+Route::get('/test-image', function () {
+    $product = Product::with('firstImage')->find(1);
+    return $product->image_url;
+});
+
+require __DIR__ . '/admin.php';

@@ -18,7 +18,10 @@ class RedirectIfNotAuthenticated
     {
         if ($request->is('admin') || $request->is('admin/*')) {
             if (!Auth::guard('admin')->check()) {
+
                 toastr()->error('Vui lòng đăng nhập để vào trang quản trị.');
+
+                return redirect()->route('admin.login');
             }
         } else {
             if (!Auth::guard('web')->check()) {
@@ -27,7 +30,7 @@ class RedirectIfNotAuthenticated
 
                 return redirect()->route('login');
             }
-            return $next($request);
         }
+        return $next($request);
     }
 }

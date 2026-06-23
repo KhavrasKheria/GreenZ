@@ -40,8 +40,8 @@
                                     </div>
                                 </div>
                                 <!-- <div class="slide-item-img">
-                                                                                                                                                                    <img src="{{ asset('asset/clients/img/slider/21.png') }}" alt="#">
-                                                                                                                                                                </div> -->
+                                                                                                                                                                                <img src="{{ asset('asset/clients/img/slider/21.png') }}" alt="#">
+                                                                                                                                                                            </div> -->
                             </div>
                         </div>
                     </div>
@@ -72,8 +72,8 @@
                                     </div>
                                 </div>
                                 <!-- <div class="slide-item-img slide-img-left">
-                                                                                                                                                                    <img src="{{ asset('asset/clients/img/slider/22.png') }}" alt="#">
-                                                                                                                                                                </div> -->
+                                                                                                                                                                                <img src="{{ asset('asset/clients/img/slider/22.png') }}" alt="#">
+                                                                                                                                                                            </div> -->
                             </div>
                         </div>
                     </div>
@@ -271,7 +271,8 @@
                                             <div class="col-lg-12">
                                                 <div class="ltn__product-item ltn__product-item-3 text-center">
                                                     <div class="product-img">
-                                                        <a href="#"><img src="{{ $product->image_url }}"
+                                                        <a href="{{ route('product.detail', $product->slug) }}"><img
+                                                                src="{{ $product->image_url }}"
                                                                 alt="{{ $product->name }}"></a>
                                                         <div class="product-hover-action">
                                                             <ul>
@@ -313,7 +314,7 @@
                                                             </ul>
                                                         </div>
                                                         <h2 class="product-title"><a
-                                                                href="product-details.html">{{ $product->name }}</a>
+                                                                href="{{ route('product.detail', $product->slug) }}">{{ $product->name }}</a>
                                                         </h2>
                                                         <div class="product-price">
                                                             <span>{{ number_format($product->price, 0, ',', '.') }}
@@ -401,7 +402,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="ltn__product-item ltn__product-item-3 text-left">
                             <div class="product-img">
-                                <a href="#"><img src="{{ $product->image_url }}" alt="{{ $product->name }}"></a>
+                                <a href="{{ route('product.detail', $product->slug) }}"><img
+                                        src="{{ $product->image_url }}" alt="{{ $product->name }}"></a>
                                 <div class="product-hover-action">
                                     <ul>
                                         <li>
@@ -436,7 +438,8 @@
                                         <li class="review-total"> <a href="#"> (24)</a></li>
                                     </ul>
                                 </div>
-                                <h2 class="product-title"><a href="product-details.html">{{ $product->name }}</a>
+                                <h2 class="product-title"><a
+                                        href="{{ route('product.detail', $product->slug) }}">{{ $product->name }}</a>
                                 </h2>
                                 <div class="product-price">
                                     <span>{{ number_format($product->price, 0, ',', '.') }}

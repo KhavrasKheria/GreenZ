@@ -10,6 +10,14 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug', 'category_id', 'description', 'price', 'stock', 'status', 'unit'];
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->firstImage?->image
+            ? asset('storage/uploads/products/' . $this->firstImage->image)
+            : asset('storage/uploads/products/default-product.png');
+    }
 
     public function category()
     {

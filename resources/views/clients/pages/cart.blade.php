@@ -28,8 +28,7 @@
                                             </td>
                                             <td class="cart-product-image">
                                                 <a href="javascript:void(0)">
-                                                    <img src="{{ asset('storage/' . ($item['image'] ?? 'uploads/products/default-product.png')) }}"
-                                                        alt="Sản phẩm">
+                                                    <img src="{{ $item['image'] }}" alt="Sản phẩm">
                                                 </a>
                                             </td>
                                             <td class="cart-product-info">
